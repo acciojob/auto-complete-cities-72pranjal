@@ -20,18 +20,20 @@ const indianCities = [
 ];
 function AutoComplete() {
   const [cities, setCities] = React.useState(indianCities)
+  const [selectedCity, setSelectedCity] = React.useState('')
   const handleInput = (e) => {
     const value = e.target.value
+    setSelectedCity(value)
     const filteredCities = indianCities.filter(city => city.toLowerCase().includes(value.toLowerCase()))
     setCities(filteredCities)
   }
   return (
     <div className='main-container'>
         <h2>Search cities of india:</h2>
-        <input type="text" onChange={handleInput} />
+        <input type="text" onChange={handleInput} value={selectedCity} />
         <ul className='cities-container'>
             {cities.map((city, index) => {
-                return <li key={index}>{city}</li>
+                return <li onClick={()=> setSelectedCity(city)} key={index}>{city}</li>
             })}
         </ul>
     </div>
