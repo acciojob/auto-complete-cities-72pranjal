@@ -1,1 +1,14 @@
-
+.main-container {
+    input {
+        width: 300px;
+    }
+    ul {
+        width: 300px;
+        height: 140px;
+        overflow-y: scroll;
+        padding: 3px;
+    }
+    li {
+        list-style: none;
+    }
+}
